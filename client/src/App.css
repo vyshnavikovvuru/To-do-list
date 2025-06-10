@@ -1,0 +1,98 @@
+/* src/App.css */
+
+:root {
+  --bg: #f9f9f9;
+  --card-bg: #fff;
+  --primary: #3498db;
+  --danger: #e74c3c;
+  --text: #333;
+  --border: #ddd;
+  --hover-bg: #f0f0f0;
+}
+
+body {
+  background: var(--bg);
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: var(--text);
+}
+
+.app-container {
+  max-width: 480px;
+  margin: 40px auto;
+  padding: 0 16px;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+form {
+  display: flex;
+  gap: 8px;
+}
+
+form input {
+  flex: 1;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+
+form button[type="submit"] {
+  padding: 10px 16px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+form button[type="submit"]:hover {
+  background: #2980b9;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 24px;
+}
+
+li {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 12px 16px;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.2s ease;
+}
+
+li:hover {
+  background: var(--hover-bg);
+}
+
+.remove-btn {
+  all: unset;
+  background: var(--danger);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.2s ease;
+}
+
+.remove-btn:hover {
+  background: #c0392b;
+}
+
+.remove-btn:focus {
+  outline: 2px solid var(--danger);
+}
