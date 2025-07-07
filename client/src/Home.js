@@ -1,4 +1,4 @@
-// client/src/App.js
+
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -29,7 +29,7 @@ function App() {
       const res = await axios.get(`http://localhost:5000/todos?user_id=${user_id}`);
       setTodos(res.data);
     } catch (err) {
-      console.error('❌ Error adding todo:', err);
+      console.error('Error adding todo:', err);
     }
   };
 
@@ -38,7 +38,7 @@ function App() {
       await axios.delete(`http://localhost:5000/todos/${id}`);
       setTodos(prev => prev.filter(t => t.id !== id));
     } catch (err) {
-      console.error('❌ Error deleting todo:', err);
+      console.error('Error deleting todo:', err);
     }
   };
 
@@ -50,10 +50,10 @@ function App() {
 
   return (
     <div style={styles.pageWrapper}>
-      {/* Logout pinned top-right */}
+   
       <button onClick={logout} style={styles.logoutBtn}>Logout</button>
 
-      {/* Main to‑do card */}
+
       <div style={styles.card}>
         <h2 style={styles.title}>📝 My To‑Do List</h2>
 
