@@ -16,13 +16,13 @@ const db = mysql.createConnection({
 
 db.connect(err => {
   if (err) {
-    console.error('❌ MySQL Error:', err);
+    console.error('MySQL Error:', err);
     return;
   }
-  console.log('✅ Connected to MySQL');
+  console.log('Connected to MySQL');
 });
 
-// 🔐 Register route
+
 app.post('/register', async (req, res) => {
   const { name, email, password } = req.body;
   db.query('SELECT * FROM users WHERE email = ?', [email], async (err, results) => {
@@ -37,7 +37,7 @@ app.post('/register', async (req, res) => {
   });
 });
 
-// 🔓 Login route
+
 app.post('/login', (req, res) => {
   const { email, password } = req.body;
 
@@ -56,7 +56,7 @@ app.post('/login', (req, res) => {
   });
 });
 
-// Add this route in your backend (server/index.js)
+
 app.get('/todos', (req, res) => {
   const userId = req.query.user_id;
   if (!userId) return res.status(400).json({ message: 'Missing user ID' });
@@ -67,8 +67,7 @@ app.get('/todos', (req, res) => {
   });
 });
 
-// Add this POST route as well
-// POST /todos - Add a new todo
+
 app.post('/todos', (req, res) => {
   const { title, user_id } = req.body;
 
@@ -88,7 +87,7 @@ app.post('/todos', (req, res) => {
 
 
 
-// ❌ Delete todo by ID
+
 app.delete('/todos/:id', (req, res) => {
   const id = req.params.id;
   db.query('DELETE FROM todos WHERE id = ?', [id], (err) => {
@@ -98,5 +97,5 @@ app.delete('/todos/:id', (req, res) => {
 });
 
 app.listen(5000, () => {
-  console.log('🚀 Server running at http://localhost:5000');
+  console.log('Server running at http://localhost:5000');
 });
